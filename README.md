@@ -2,20 +2,25 @@
 
 ### End-to-End Intelligent Pricing System for E-Commerce
 
-A real-time intelligent pricing system that combines **Machine Learning**, **Causal Inference**, and **Multi-Armed Bandit Optimization** to generate adaptive, explainable, and revenue-optimized product prices.
+A production-style pricing intelligence system that combines **Machine Learning**, **Causal Inference**, **Online Learning**, and **Real-Time Serving** to generate adaptive and revenue-optimized product prices.
 
 ---
 
-## 🎯 Problem Statement
+## 📌 Project Overview
 
-Traditional e-commerce pricing is often static and fails to:
+Traditional pricing systems rely on static rules or purely correlation-based machine learning models.
 
-- Adapt to competitor price changes
-- Capture demand sensitivity
-- Maximize revenue
-- React to dynamic market conditions
+This project combines:
 
-This project addresses these challenges through an intelligent pricing engine capable of learning and adapting in real time.
+- **XGBoost** for price prediction
+- **DoWhy** for causal demand modeling
+- **River UCB** for online learning
+- **FastAPI** for real-time inference
+- **Redis** for low-latency caching
+- **Evidently** for drift monitoring
+- **Streamlit** for visualization
+
+The system estimates how price changes affect demand and continuously adapts pricing decisions using feedback-driven optimization.
 
 ---
 
@@ -25,13 +30,28 @@ This project addresses these challenges through an intelligent pricing engine ca
 
 ---
 
-## 🔑 Core Pricing Formula
+## 🔄 Pricing Pipeline
 
 ```text
-Final Price =
-ML Prediction
-+ Causal Adjustment
-+ Bandit Optimization
+Competitor Data
+        │
+        ▼
+Feature Engineering
+        │
+        ▼
+XGBoost Price Prediction
+        │
+        ▼
+DoWhy Causal Adjustment
+        │
+        ▼
+Business Constraints
+        │
+        ▼
+River UCB Optimization
+        │
+        ▼
+Final Recommended Price
 ```
 
 ---
@@ -41,58 +61,169 @@ ML Prediction
 | Component | Technology |
 |------------|------------|
 | Machine Learning | XGBoost |
-| Causal Modeling | Price Elasticity Modeling |
-| Optimization | UCB Multi-Armed Bandit |
+| Causal Inference | DoWhy |
+| Online Learning | River UCB |
 | Backend API | FastAPI |
-| Caching | Redis |
 | Dashboard | Streamlit |
-| Data Processing | Pandas, NumPy |
+| Caching | Redis |
+| Drift Monitoring | Evidently |
 | Explainability | SHAP |
+| Data Processing | Pandas, NumPy |
 
 ---
 
-## 📊 Key Features
+## 📂 Project Structure
 
-✅ Competitor Price Intelligence
-
-✅ Demand-Aware Pricing
-
-✅ Causal Revenue Optimization
-
-✅ Multi-Armed Bandit Learning
-
-✅ Real-Time Inference Pipeline
-
-✅ Redis-Based Low-Latency Serving
-
-✅ Drift Detection & Monitoring
-
-✅ Streamlit Analytics Dashboard
-
----
-
-## 🔄 End-to-End Pipeline
-
-<img src="assets/End to End Pipeline.png" width="100%">
-
----
-
-## 📈 Project Highlights
-
-- Built an end-to-end pricing intelligence system
-- Implemented XGBoost-based price prediction
-- Modeled demand using causal price elasticity
-- Applied UCB Bandit optimization for adaptive pricing
-- Designed FastAPI + Redis serving architecture
-- Integrated drift monitoring for model reliability
-- Developed Streamlit dashboard for visualization
+```text
+REAL-TIME-CAUSAL-PRICING-ENGINE
+│
+├── assets/
+│   ├── Presentation Slides
+│   └── Architecture Images
+│
+├── data/
+│   └── Dataset Files
+│
+├── models/
+│   └── Trained Model Artifacts
+│
+├── notebooks/
+│   ├── 01_causal_eda.ipynb
+│   ├── 02_xgb_model.ipynb
+│   ├── 03_causal_analysis.ipynb
+│   └── 04_online_bandit.ipynb
+│
+├── api.py
+├── scraper.py
+├── dashboard.py
+├── drift_monitor.py
+│
+└── README.md
+```
 
 ---
 
-# 📑 Complete Project Presentation
+## 🧠 Training Pipeline
+
+| Notebook | Purpose |
+|-----------|----------|
+| 01_causal_eda.ipynb | Data cleaning, feature engineering, competitor pricing generation |
+| 02_xgb_model.ipynb | XGBoost model training and SHAP explainability |
+| 03_causal_analysis.ipynb | DoWhy causal inference and elasticity estimation |
+| 04_online_bandit.ipynb | River UCB online learning and adaptive pricing |
+
+---
+
+## 📦 Model Artifacts
+
+The training pipeline generates the following artifacts:
+
+```text
+models/
+│
+├── xgb_model.pkl
+├── xgb_model.json
+├── causal_state.json
+├── bandit_state.json
+├── category_map.json
+└── model_meta.json
+```
+
+These artifacts are loaded by the FastAPI inference engine during runtime.
+
+---
+
+## ✨ Key Features
+
+### 🤖 XGBoost Price Prediction
+
+Predicts the baseline product price using engineered competitor and product features.
+
+### 📈 DoWhy Causal Inference
+
+Estimates price elasticity and models the causal effect of price changes on demand.
+
+### 🎰 River UCB Online Learning
+
+Continuously adapts pricing strategy using revenue-based feedback.
+
+### ⚡ FastAPI Inference Engine
+
+Serves pricing recommendations through REST APIs.
+
+### 🧠 Redis Cache
+
+Reduces latency by caching live product data and prediction results.
+
+### 📉 Evidently Drift Monitoring
+
+Detects feature distribution shifts and supports retraining workflows.
+
+### 📊 Streamlit Dashboard
+
+Provides interactive pricing analysis and visualization.
+
+---
+
+## 🚀 Running the Project
+
+### 1. Start Redis
+
+```bash
+redis-server
+```
+
+### 2. Start Live Scraper
+
+```bash
+python scraper.py
+```
+
+### 3. Start FastAPI Server
+
+```bash
+uvicorn api:app --reload --port 8000
+```
+
+API Documentation:
+
+```text
+http://localhost:8000/docs
+```
+
+### 4. Launch Dashboard
+
+```bash
+streamlit run dashboard.py
+```
+
+Dashboard:
+
+```text
+http://localhost:8501
+```
+
+---
+
+## 📌 Repository Notes
+
+The following are intentionally excluded from the repository:
+
+```text
+venv/
+Redis installation binaries
+__pycache__/
+Temporary cache files
+```
+
+Redis must be installed separately if caching functionality is required.
+
+---
+
+# 📑 Project Presentation
 
 <details>
-<summary><b>Click to View Complete 21-Slide Presentation</b></summary>
+<summary><b>Click to View Complete Presentation</b></summary>
 
 <br>
 
@@ -122,6 +253,22 @@ ML Prediction
 
 ---
 
-## 📌 Conclusion
+## 🎯 Skills Demonstrated
 
-The Real-Time Causal Pricing Engine combines Machine Learning, Causal Inference, and Bandit Learning to deliver adaptive, explainable, and revenue-optimized pricing decisions for dynamic e-commerce environments.
+- Machine Learning
+- Causal Inference
+- Online Learning
+- Feature Engineering
+- FastAPI
+- Redis
+- Streamlit
+- SHAP Explainability
+- Evidently Drift Detection
+- MLOps Concepts
+- End-to-End ML System Design
+
+---
+
+## 📄 License
+
+This project is intended for educational, research, and portfolio purposes.
