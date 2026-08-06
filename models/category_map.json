@@ -1,0 +1,17 @@
+{
+  "automotive": 0,
+  "baby_care": 1,
+  "beauty_and_personal_care": 2,
+  "clothing": 3,
+  "computers": 4,
+  "footwear": 5,
+  "home_decor_&_festive_needs": 6,
+  "home_furnishing": 7,
+  "jewellery": 8,
+  "kitchen_&_dining": 9,
+  "mobiles_&_accessories": 10,
+  "pens_&_stationery": 11,
+  "tools_&_hardware": 12,
+  "toys_&_school_supplies": 13,
+  "watches": 14
+}

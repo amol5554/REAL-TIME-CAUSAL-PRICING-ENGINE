@@ -1,0 +1,7 @@
+{
+  "elasticity": -0.02085423,
+  "base_price": 1522.63,
+  "base_qty": 50.04,
+  "optimal_price": 1961.05,
+  "dataset": "flipkart_kaggle"
+}

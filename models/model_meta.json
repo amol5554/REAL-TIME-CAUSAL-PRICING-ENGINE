@@ -1,0 +1,18 @@
+{
+  "features": [
+    "comp_avg_price",
+    "comp_min_price",
+    "comp_max_price",
+    "comp_spread",
+    "log_retail",
+    "rating",
+    "brand_encoded",
+    "category_encoded"
+  ],
+  "mae": 15.61,
+  "r2": 0.997,
+  "n_train": 14615,
+  "n_test": 3654,
+  "target": "discounted_price",
+  "dataset": "flipkart_kaggle"
+}
