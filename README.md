@@ -21,7 +21,7 @@ This project addresses these challenges through an intelligent pricing engine ca
 
 ## 🏗️ System Architecture
 
-<img src="assets/Slide4.JPG" width="100%">
+<img src="assets/SYSTEM OVERVIEW - REAL-TIME CAUSAL PRICING ENGINE.png" width="100%">
 
 ---
 
@@ -73,7 +73,7 @@ ML Prediction
 
 ## 🔄 End-to-End Pipeline
 
-<img src="assets/Slide15.JPG" width="100%">
+<img src="assets/End to End Pipeline.png" width="100%">
 
 ---
 
